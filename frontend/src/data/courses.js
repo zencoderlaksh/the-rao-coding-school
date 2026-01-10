@@ -1,35 +1,43 @@
 export const courses = [
   {
-    id: 1,
-    title: "Data Science and Analytics with GenAI",
+    slug: "web-development",
+    title: "Web Development",
+    subtitle: "Become a job-ready full stack web developer",
+    language: "HINGLISH",
     price: 6999,
-    originalPrice: 15000,
-    discount: "53% OFF",
-    tag: "AI",
-    language: "HINGLISH",
-    slug: "data-science-and-analytics-with-genai",
-    image: "/course1.webp",
-  },
-  {
-    id: 2,
-    title: "2.0 Job Ready AI Powered Cohort: Web + DSA + Aptitude",
-    price: 5999,
-    originalPrice: 11999,
-    discount: "50% OFF",
-    tag: "JOB READY",
-    language: "HINGLISH",
-    slug: "job-ready-ai-powered-cohort",
-    image: "/course2.webp",
-  },
-  {
-    id: 3,
-    title: "DSA Domination Cohort",
-    price: 6600,
-    originalPrice: 7500,
-    discount: "12% OFF",
-    tag: "LOGIC BUILDING",
-    language: "HINGLISH",
-    slug: "dsa-domination-cohort",
-    image: "/course3.webp",
+    originalPrice: 12000,
+    duration: "6 Months",
+    mode: "Live + Recorded",
+    tools: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+    overview: `
+      This course is designed to take you from absolute basics
+      to building production-ready web applications.
+    `,
+    learnings: [
+      "Build responsive websites",
+      "Master JavaScript fundamentals",
+      "Frontend with React",
+      "Backend with Node & Express",
+      "Deploy real-world projects",
+    ],
+    syllabus: [
+      {
+        title: "HTML & CSS Fundamentals",
+        topics: ["HTML5", "CSS3", "Flexbox", "Grid"],
+      },
+      {
+        title: "JavaScript Core",
+        topics: ["Variables", "Functions", "DOM", "Async JS"],
+      },
+      {
+        title: "React",
+        topics: ["Components", "Hooks", "Routing"],
+      },
+    ],
+    projects: [
+      "Portfolio Website",
+      "E-commerce UI",
+      "Full Stack Web App",
+    ],
   },
 ]

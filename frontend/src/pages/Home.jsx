@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { useEffect } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
+import { featuredCourses } from "../data/featuredCourses"
+import FeaturedCourseCard from "../components/FeaturedCourseCard"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -86,17 +88,23 @@ const Home = () => {
 
       {/* COURSES */}
       <section
-        data-scroll
-        className="courses-section min-h-screen p-20"
-      >
-        <h2 className="text-5xl mb-12">Courses</h2>
+  data-scroll
+  className="courses-section min-h-screen p-20"
+>
+  <h2 className="text-5xl mb-4">Featured Courses</h2>
+  <p className="opacity-70 mb-14">
+    Industry-focused programs to build strong fundamentals
+  </p>
 
-        <div className="grid grid-cols-3 gap-8">
-          <div className="course-card p-6 border">Web Development</div>
-          <div className="course-card p-6 border">JavaScript Mastery</div>
-          <div className="course-card p-6 border">DSA with C++</div>
-        </div>
-      </section>
+  <div className="grid grid-cols-4 gap-10">
+    {featuredCourses.map((course) => (
+      <FeaturedCourseCard
+        key={course.slug}
+        course={course}
+      />
+    ))}
+  </div>
+</section>
 
       {/* WHY US */}
       <section
