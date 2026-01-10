@@ -3,6 +3,10 @@ import { courses } from "../data/courses"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { useEffect } from "react"
+import FloatingTools from "../components/FloatingTools"
+import TestimonialsMarquee from "../components/TestimonialsMarquee"
+import FaqSection from "../components/FaqSection"
+
 
 const CourseDetails = () => {
   const { slug } = useParams()
@@ -23,18 +27,21 @@ const CourseDetails = () => {
   }
 
   return (
-    <motion.section
+  <section data-scroll-section className="pt-40">
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="pt-40"
     >
       {/* HERO */}
       <section className="px-20 mb-24">
+        <FloatingTools />
+
         <h1 className="text-6xl font-bold cd-animate">
           {course.title}
         </h1>
+
         <p className="mt-4 text-xl opacity-70 cd-animate">
           {course.subtitle}
         </p>
@@ -141,8 +148,16 @@ const CourseDetails = () => {
           ))}
         </div>
       </section>
-    </motion.section>
-  )
+
+      {/* TESTIMONIALS */}
+      <TestimonialsMarquee />
+
+      {/* FAQ */}
+      <FaqSection />
+    </motion.div>
+  </section>
+)
+
 }
 
 export default CourseDetails

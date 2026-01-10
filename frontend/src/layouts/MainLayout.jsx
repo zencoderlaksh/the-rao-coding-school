@@ -10,17 +10,20 @@ const MainLayout = () => {
 
   return (
     <>
-      {/* FIXED NAVBAR OUTSIDE */}
+      {/* NAVBAR MUST STAY OUTSIDE */}
       <Navbar />
 
-      {/* ONLY SCROLL CONTENT INSIDE */}
-     <main
-  data-scroll-container
-  ref={scrollRef}
-  className="min-h-screen overflow-hidden"
->
-        <Outlet />
-        <Footer />
+      {/* LOCOMOTIVE CONTAINER */}
+      <main
+        data-scroll-container
+        ref={scrollRef}
+        className="min-h-screen overflow-hidden"
+      >
+        {/* REQUIRED SCROLL SECTION */}
+        <div data-scroll-section>
+          <Outlet />
+          <Footer />
+        </div>
       </main>
     </>
   )
