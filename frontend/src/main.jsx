@@ -6,6 +6,10 @@ import App from './App.jsx'
 import store from "./store"
 import { Provider } from "react-redux"
 
+if ("scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual"
+}
+
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
 <BrowserRouter>  

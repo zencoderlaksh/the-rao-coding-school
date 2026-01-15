@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useLocation } from "react-router-dom"
 import { courses } from "../data/courses"
 import { motion } from "framer-motion"
 import gsap from "gsap"
@@ -6,10 +6,15 @@ import { useEffect } from "react"
 import FloatingTools from "../components/FloatingTools"
 import TestimonialsMarquee from "../components/TestimonialsMarquee"
 import FaqSection from "../components/FaqSection"
+import CourseHero from "../components/CourseHero"
+import ProjectsHorizontal from "../components/ProjectsHorizontal"
+
+
 
 
 const CourseDetails = () => {
   const { slug } = useParams()
+  const location = useLocation()
   const course = courses.find((c) => c.slug === slug)
 
   useEffect(() => {
@@ -20,6 +25,7 @@ const CourseDetails = () => {
       stagger: 0.15,
       ease: "power3.out",
     })
+    
   }, [])
 
   if (!course) {
@@ -60,6 +66,12 @@ const CourseDetails = () => {
           Enroll Now
         </button>
       </section>
+     <CourseHero
+  title={course.hero?.title || ""}
+  highlight={course.hero?.highlight || ""}
+  leftIcon={course.hero?.leftIcon}
+  rightIcon={course.hero?.rightIcon}
+/>
 
       {/* TRUST STRIP */}
       <section className="px-20 mb-24 grid grid-cols-4 gap-10">
@@ -132,22 +144,9 @@ const CourseDetails = () => {
       </section>
 
       {/* PROJECTS */}
-      <section className="px-20 mb-32">
-        <h2 className="text-4xl mb-10 cd-animate">
-          Projects You Will Build
-        </h2>
+      <ProjectsHorizontal projects={course.projects} />
 
-        <div className="grid grid-cols-3 gap-8">
-          {course.projects.map((p) => (
-            <div
-              key={p}
-              className="border border-white/10 p-6 cd-animate"
-            >
-              {p}
-            </div>
-          ))}
-        </div>
-      </section>
+    
 
       {/* TESTIMONIALS */}
       <TestimonialsMarquee />
